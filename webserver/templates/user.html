@@ -1,0 +1,49 @@
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+
+<body>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+
+ <form mehtod ="POST" action= "/logout">
+	<input type="submit" value="Log Out" name="logout">
+</form>
+<!-- <form method = "POST" action = "/goback"> -->
+	<!-- <input type="submit" value="Go Back" name="goback"> -->
+	<!-- <input type="submit" value="Go Back" name="goback"><br>	 -->
+<!-- </form> -->
+<input type="button" value="Back" onclick="window.history.back()" />
+
+
+
+
+  <h1>User Profile</h1>
+  
+ <form mehtod ="POST" action= "/userprofile">
+ 	
+
+<section class="rehomes-categories-property-area section-padding-100-70">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-heading text-center wow fadeInUp" data-wow-delay="200ms">
+					<h2>user information</h2>
+					<p> first_name: {{first_name}}</p>
+					<p> last_name: {{last_name}}</p>
+					<p> age: {{age}}</p>
+					<p> address: {{address}}</p>
+			</div>
+		</div>
+	</div>
+</section>
+</form></div>		
+</body>
+
+</html>

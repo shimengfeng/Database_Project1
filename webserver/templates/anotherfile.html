@@ -1,0 +1,93 @@
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+<link rel="shortcut icon" href="static/favicon.ico">
+
+<body>
+  <h1>Housing information</h1>
+  
+  <form method="POST" action="/chat_history"><input type="submit" value="Chat Room"></form>
+  
+  <div>{{housing_info}}</div>
+<input type="button" value="Back" onclick="window.history.back()" />
+  <div>
+    {% for n in housing_info %}
+    <div>{{n}}</div>
+    {% endfor %}
+  </div>
+
+<!-- <p><a href="/another">Go to the other page</a></p> -->
+
+<form method="POST" action="/add">
+<label for="start">Move-In!:</label>
+
+<input type="date" id="trip_start" name="trip_start"
+       value="2019-01-01"
+       min="2019-01-01" max="2019-12-31">
+	   <label for="start">Move-Out!:</label>
+
+	   <input type="date" id="trip_end" name="trip_end"
+       value="2019-12-31"
+       min="2019-01-01" max="2019-12-31">
+	   
+	   
+	   <input type="submit" value="Submit">
+	   
+	   
+
+
+<!--location: <select name="trip_location" onchange="this.form.submit()">{% for n in locations %} <option> <div>{{n[0]}}</div>  {% endfor %} </option></select>-->
+ 
+Country: <input type="text" name="trip_location"> <input type="submit" value="Search">
+</form>
+
+<section class="rehomes-categories-property-area section-padding-100-70">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-heading text-center wow fadeInUp" data-wow-delay="200ms">
+					  <div>
+							{% for n in listings %}
+							<div><b>{{n[0]}}</b></div>
+
+							<img src={{n[7]}} width="500" height="400" ></img> 
+
+							<br><div>For {{n[1]}}$ <form mehtod ="POST" action= "/book/{{n[2]}}"><input type="submit" value="Book Now!" name="book"></form></div>
+
+							<p> <b>Description:</b></p>
+							<div>For {{n[3]}}</div><br>
+							<p> <b>Features:</b></p>
+
+						  <div>Rooms : {{n[4]}}</div>
+						  <div>Area: {{n[5]}} metersquare</div>
+								{% endfor %}
+							<p> <b>User Reviews:</b></p>
+	
+							{% for n in review %}
+							<div>{{n[1]}} : {{n[0]}}</div><br> 
+								{% endfor %}
+
+
+						  </div>
+				</div>
+			</div>
+    </section>
+<b><div>{{name}}, Review this house!</div></b><br>
+<p><b>{{m}}</b><p>
+<form method="POST" action="/post" id="post_review">
+<textarea rows="30" cols="150" name="comment" form="post_review">
+Review this house!</textarea><br>
+<input type="submit" value="Post" name="post">
+</form>
+<br>
+
+
+
+</body>
+
+
+</html>

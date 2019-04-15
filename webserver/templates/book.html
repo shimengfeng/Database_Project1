@@ -1,0 +1,56 @@
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+<input type="button" value="Back" onclick="window.history.back()" />
+
+<body>
+  <h1>{{house_name}}</h1>
+  <div>{{housing_info}}</div>
+
+  <div>
+    {% for n in housing_info %}
+    <div>{{n}}</div>
+    {% endfor %}
+  </div>
+<!-- <p><a href="/another">Go to the other page</a></p> -->
+<h1>Book {{listings[0][0]}} Now!</h1>
+
+<p> Select you booking dates from below: </p>
+
+
+<form method="POST" action= "/booknow/{{listings[0][2]}}">
+
+Rooms: <input type="text" name="room_number"> 
+
+<label for="start">Move-In!:</label>
+
+<input type="date" id="trip_start" name="trip_start"
+       value={{date[0][0]}}
+       min={{date[0][0]}} max={{date[0][1]}}>
+	   <label for="start">Move-Out!:</label>
+
+	   <input type="date" id="trip_end" name="trip_end"
+       value={{date[0][1]}}
+       min={{date[0][0]}} max={{date[0][1]}}>
+	   
+	   
+	   <input type="submit" value="Book">
+	   
+  
+
+
+<!--location: <select name="trip_location" onchange="this.form.submit()">{% for n in locations %} <option> <div>{{n[0]}}</div>  {% endfor %} </option></select>-->
+ 
+
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,86 @@
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+<link rel="shortcut icon" href="static/favicon.ico">
+
+<body>
+  <h1>Housig information</h1>
+  <div>{{housing_info}}</div>
+
+  
+<p><a href="/userprofile">User Profile</a></p>
+ 
+  
+  <div>
+    {% for n in housing_info %}
+    <div>{{n}}</div>
+    {% endfor %}
+  </div>
+ <form mehtod ="POST" action= "/logout">
+ <div><b>Welcome Back {{name}}! 
+	<input type="submit" value="Log Out" name="logout"><br>	<br>
+</form></b></div>
+<!-- <p><a href="/another">Go to the other page</a></p> -->
+
+<form method="POST" action="/add">
+<label for="start">Move-In!:</label>
+
+<input type="date" id="trip_start" name="trip_start"
+       value="2019-01-01"
+       min="2019-01-01" max="2019-12-31">
+	   <label for="start">Move-Out!:</label>
+
+	   <input type="date" id="trip_end" name="trip_end"
+       value="2019-12-31"
+       min="2019-01-01" max="2019-12-31">
+	   
+	   
+	   <input type="submit" value="Submit">
+
+	   
+	   
+	   
+
+
+<!--location: <select name="trip_location" onchange="this.form.submit()">{% for n in locations %} <option> <div>{{n[0]}}</div>  {% endfor %} </option></select>-->
+ 
+Country: <input type="text" name="trip_location"/> <input type="submit" value="Search"> 
+
+</form>
+
+
+<!-- <input type="submit" value="Chat" name="chat"> -->
+
+
+
+
+
+<section class="rehomes-categories-property-area section-padding-100-70">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-heading text-center wow fadeInUp" data-wow-delay="200ms">
+					<h2>Categories By <span>Property</span></h2>
+					<b>{{count}} Results Found!</b>
+					  <div>
+							{% for n in listings %}
+							<div><a href = {{n[2]}}>{{n[0]}}</a></div>
+							<img src={{n[3]}} width="500" height="400" ></img>
+							<div>For {{n[1]}}$</div>
+								{% endfor %}
+						  </div>
+				</div>
+			</div>
+    </section>
+	
+
+
+</body>
+
+
+</html>
